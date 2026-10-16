@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: enhance-ai
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: REPLICATE_API_TOKEN
+        sync: false
+      - key: ACCESS_CODE
+        sync: false
+      - key: VIDEO_ENGINE_ENABLED
+        value: "false"
+      - key: TRUST_PROXY
+        value: "1"

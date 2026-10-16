@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0d14">
+  <title>Enhance AI</title>
+  <meta name="description" content="Enhance AI - AI image and short video enhancement">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><path d="M32 6l7 18.5L58 32l-19 7.5L32 58l-7-18.5L6 32l19-7.5z" fill="url(#lg)"/></svg>
+      <span class="brand-name">Enhance AI</span>
+    </div>
+    <button id="langBtn" class="btn ghost small" type="button" aria-label="Switch language / تبديل اللغة">EN</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 data-i18n="hero.title"></h1>
+      <p class="muted" data-i18n="hero.subtitle"></p>
+    </section>
+
+    <div class="card access" id="accessBox" hidden>
+      <label for="accessInput" class="card-title" data-i18n="access.label"></label>
+      <input id="accessInput" class="input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Enhance AI">
+      <button class="tab" role="tab" id="tab-image" aria-controls="panel-image" aria-selected="true" type="button" data-i18n="tab.image"></button>
+      <button class="tab" role="tab" id="tab-video" aria-controls="panel-video" aria-selected="false" tabindex="-1" type="button" data-i18n="tab.video"></button>
+    </div>
+
+    <!-- ============ IMAGE ============ -->
+    <section class="panel" id="panel-image" role="tabpanel" aria-labelledby="tab-image" data-type="image">
+      <div class="notice warn" data-el="unavailable" hidden></div>
+
+      <label class="dropzone" data-el="dropzone">
+        <input type="file" data-el="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp">
+        <span class="dz-title" data-i18n="image.pick"></span>
+        <span class="dz-hint muted" data-i18n="image.hint"></span>
+      </label>
+
+      <div class="card" data-el="originalCard" hidden>
+        <h2 class="card-title" data-i18n="original"></h2>
+        <div class="media-box"><img data-el="originalImg" alt=""></div>
+        <p class="meta" data-el="originalMeta"></p>
+      </div>
+
+      <fieldset class="card options" data-el="options" hidden>
+        <legend class="card-title" data-i18n="level"></legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="scale" value="2"><span><b>2×</b><small data-i18n="image.scale2"></small></span></label>
+          <label class="choice"><input type="radio" name="scale" value="4" checked><span><b>4×</b><small data-i18n="image.scale4"></small></span></label>
+        </div>
+        <label class="check"><input type="checkbox" data-el="face"><span data-i18n="image.face"></span></label>
+      </fieldset>
+
+      <button class="btn primary block" type="button" data-el="go" hidden data-i18n="enhance"></button>
+      <div class="job" data-el="job" hidden></div>
+    </section>
+
+    <!-- ============ VIDEO ============ -->
+    <section class="panel" id="panel-video" role="tabpanel" aria-labelledby="tab-video" data-type="video" hidden>
+      <div class="notice warn" data-el="unavailable" hidden></div>
+
+      <label class="dropzone" data-el="dropzone">
+        <input type="file" data-el="file" accept="video/mp4,.mp4">
+        <span class="dz-title" data-i18n="video.pick"></span>
+        <span class="dz-hint muted" data-i18n="video.hint"></span>
+      </label>
+
+      <div class="card" data-el="originalCard" hidden>
+        <h2 class="card-title" data-i18n="original"></h2>
+        <div class="media-box"><video data-el="originalVideo" controls playsinline muted preload="metadata"></video></div>
+        <p class="meta" data-el="originalMeta"></p>
+      </div>
+
+      <fieldset class="card options" data-el="options" hidden>
+        <legend class="card-title" data-i18n="level"></legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="resolution" value="720p"><span><b>720p</b><small data-i18n="video.res720"></small></span></label>
+          <label class="choice"><input type="radio" name="resolution" value="1080p" checked><span><b>1080p</b><small data-i18n="video.res1080"></small></span></label>
+          <label class="choice"><input type="radio" name="resolution" value="4k"><span><b>4K</b><small data-i18n="video.res4k"></small></span></label>
+        </div>
+        <p class="muted small-text" data-i18n="video.note"></p>
+      </fieldset>
+
+      <button class="btn primary block" type="button" data-el="go" hidden data-i18n="enhance"></button>
+      <div class="job" data-el="job" hidden></div>
+    </section>
+
+    <section class="card privacy" aria-labelledby="privacy-h">
+      <h2 class="card-title" id="privacy-h" data-i18n="privacy.title"></h2>
+      <p class="muted" data-el="privacyText"></p>
+    </section>
+  </main>
+
+  <footer class="footer muted">Enhance AI</footer>
+  <script src="/i18n.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
